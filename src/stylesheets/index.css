@@ -1,0 +1,15 @@
+/* TODO Add site wide styles */
+@import 'splash.css';
+
+
+html,
+body,
+#root {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    /* background-color: black; */
+    /* background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%); */
+    font-family: Verdana,Helvetica,Arial,sans-serif;
+    overflow: hidden;
+}
