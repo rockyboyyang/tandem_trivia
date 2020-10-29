@@ -6,12 +6,13 @@ import questions from "../../assets/Apprentice_TandemFor400_Data.json"
 
 const Play = () => {
     const { playerName, setPlayerName } = useContext(AppContext)
-    // const [currentQuestion, setCurrentQuestion] = useState({})
+    const [currentQuestion, setCurrentQuestion] = useState({})
     const [answer1, setAnswer1] = useState('')
     const [answer2, setAnswer2] = useState('')
     const [answer3, setAnswer3] = useState('')
     const [answer4, setAnswer4] = useState('')
-    let currentQuestion = {}
+    const [currentScore, setCurrentScore] = useState(0)
+
     function randomIntFromInterval(min, max) { // min and max included 
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
@@ -23,7 +24,7 @@ const Play = () => {
         let max = 3
 
         // this always puts the answers in different positions
-        currentQuestion = questions[randomNum]
+        let currentQuestion = questions[randomNum]
         for(let i = 0; i < len; i++) {
             let randomAnswerNum = randomIntFromInterval(0, max)
             if (i === 0) setAnswer1(answers[randomAnswerNum])
@@ -33,20 +34,27 @@ const Play = () => {
             answers.splice(randomAnswerNum, 1)
             max--
         }
-        document.getElementById('question').innerText = `Question ${currentQuestion.question}`
+        setCurrentQuestion(currentQuestion)
     }
 
-    const selectAnswer = () => {
-
+    const selectAnswer = (e) => {
+        e.preventDefault()
+        let playersAnswer = e.target.innerText
+        if(playersAnswer === currentQuestion.correct) {
+            let newTotal = currentScore + 1
+            setCurrentScore(newTotal)
+        } else {
+            
+        }
     }
-    
+
     useEffect(() => {
         randomizeQuestions()
-        console.log(currentQuestion.question)
     }, [])
 
     return (
         <div className="play-page css-typing">
+            <div id="score">{currentScore}/10</div>
             <div id='question'>Question {currentQuestion.question}</div>
             <div className="answers_container">
                 <Answer answer={answer1} selectAnswer={selectAnswer}/>
