@@ -6,14 +6,15 @@ import json from "./assets/Apprentice_TandemFor400_Data.json"
 
 function App() {
   const [questions, setQuestions] = useState(json)
-  
+  const [playerName, setPlayerName] = useState(json)
+
   return (
     <BrowserRouter>
-      {/* <AppContext.Provider value={{  }}> */}
+      <AppContext.Provider value={{ questions, playerName, setPlayerName }}>
         <Switch>
           <Route exact path="/" render={(props) => <Splash />} />
         </Switch>
-      {/* </AppContext.Provider> */}
+      </AppContext.Provider>
     </BrowserRouter>
   );
 }
