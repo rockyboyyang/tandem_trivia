@@ -9,12 +9,15 @@ const Play = () => {
     const { playerName, setPlayerName } = useContext(AppContext)
     const [currentQuestion, setCurrentQuestion] = useState({})
     const [questionNumber, setQuestionNumber] = useState(1)
+    const [playerAnswer, setPlayerAnswer] = useState('')
     const [answer1, setAnswer1] = useState('')
     const [answer2, setAnswer2] = useState('')
     const [answer3, setAnswer3] = useState('')
     const [answer4, setAnswer4] = useState('')
     const [currentScore, setCurrentScore] = useState(0)
     const [notAskedQuestions, setNotAskedQuestions] = useState(questions)
+
+    const history = useHistory()
 
     function randomIntFromInterval(min, max) { // min and max included 
         return Math.floor(Math.random() * (max - min + 1) + min);
@@ -50,25 +53,20 @@ const Play = () => {
 
     const selectAnswer = (e) => {
         e.preventDefault()
-        let playersAnswer = e.target.innerText
-        if(playersAnswer === currentQuestion.correct) {
-            let newTotal = currentScore + 1
-            setCurrentScore(newTotal)
-        } else {
+        let playerAnswer = e.target.innerText
+        setPlayerAnswer(playerAnswer)
 
-        }
-
-        randomizeQuestions()
-        setQuestionNumber(questionNumber + 1)
+        document.querySelector('.confirm_modal').style.display = "flex"
     }
 
     useEffect(() => {
         randomizeQuestions()
+        if(!playerName) history.push('../')
     }, [])
 
     return (
         <>
-            <ConfirmationModal />
+            <ConfirmationModal playerAnswer={playerAnswer} currentQuestion={currentQuestion} setQuestionNumber={setQuestionNumber} questionNumber={questionNumber} randomizeQuestions={randomizeQuestions} setCurrentScore={setCurrentScore} currentScore={currentScore}/>
             <div className="play-page">
                 <div className="gameplay-container">
                     <div className="question_score_container">
