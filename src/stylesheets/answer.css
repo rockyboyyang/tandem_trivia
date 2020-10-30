@@ -16,3 +16,9 @@
     color: #2d283e;
     border-radius: 20px;
 }
+
+.inner_answer_container:hover {
+    cursor: pointer;
+    background-color: rgb(147, 255, 147);
+    transition: .5s;
+}

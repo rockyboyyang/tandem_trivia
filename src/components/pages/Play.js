@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { AppContext } from '../../context/AppContext'
 import Answer from '../Answer'
 import questions from "../../assets/Apprentice_TandemFor400_Data.json"
+import ConfirmationModal from '../ConfirmationModal'
 
 const Play = () => {
     const { playerName, setPlayerName } = useContext(AppContext)
@@ -66,23 +67,26 @@ const Play = () => {
     }, [])
 
     return (
-        <div className="play-page css-typing">
-            <div className="gameplay-container">
-                <div className="question_score_container">
-                    <div id="score">Score: {currentScore}/10</div>
-                    <div id="question_number"><h1>Question {questionNumber}</h1></div>
-                    <div className="question_container">
-                        <div id='question'>{currentQuestion.question}</div>
+        <>
+            <ConfirmationModal />
+            <div className="play-page">
+                <div className="gameplay-container">
+                    <div className="question_score_container">
+                        <div id="score">Score: {currentScore}/10</div>
+                        <div id="question_number"><h1>Question {questionNumber}</h1></div>
+                        <div className="question_container">
+                            <div id='question'>{currentQuestion.question}</div>
+                        </div>
+                    </div>
+                    <div className="answers_container">
+                        <Answer answer={answer1} selectAnswer={selectAnswer}/>
+                        <Answer answer={answer2} selectAnswer={selectAnswer} />
+                        <Answer answer={answer3} selectAnswer={selectAnswer} />
+                        <Answer answer={answer4} selectAnswer={selectAnswer} />
                     </div>
                 </div>
-                <div className="answers_container">
-                    <Answer answer={answer1} selectAnswer={selectAnswer}/>
-                    <Answer answer={answer2} selectAnswer={selectAnswer} />
-                    <Answer answer={answer3} selectAnswer={selectAnswer} />
-                    <Answer answer={answer4} selectAnswer={selectAnswer} />
-                </div>
             </div>
-        </div>
+        </>
     );
 }
 

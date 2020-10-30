@@ -1,0 +1,82 @@
+.confirm_modal {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.494);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm_container {
+    height: 45%;
+    width: 35%;
+    background-color: #564f6f;
+    border-radius: 20px;
+    border: 3px solid #d1d7e0;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+}
+
+.confirm_question,
+.yes_no_container {
+    height: 100%;
+    width: 100%;
+}
+
+.confirm_question {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm_question_inner_container {
+    background-color: #d1d7e0;
+    height: 80%;
+    width: 80%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2d283e;
+}
+
+.yes_no_button {
+    height: 50%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+#yes_button {
+    color: green;
+    border: 1px solid #d1d7e0;
+    border-radius: 20px;
+}
+
+#yes_button:hover {
+    background-color: #d1d7e0;
+    cursor: pointer;
+    transition: .5s;
+}
+
+#no_button {
+    color: red;
+    border: 1px solid #d1d7e0;
+    border-radius: 20px;
+}
+
+#no_button:hover {
+    background-color: #d1d7e0;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.yes_no_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
