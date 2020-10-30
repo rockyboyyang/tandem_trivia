@@ -1,0 +1,18 @@
+.answer_box {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner_answer_container {
+    height: 80%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d1d7e0;
+    color: #2d283e;
+    border-radius: 20px;
+}

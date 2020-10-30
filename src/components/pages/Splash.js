@@ -63,8 +63,10 @@ const Splash = () => {
     return (
         <div className="splash-page css-typing">
             <h1>Welcome to Ultimate Trivia!</h1>
-            <input type="text" onChange={handleName} placeholder="Enter Name"></input>
-            <div onClick={playGame} className="play_game_button">Let's Play</div>
+            <form>
+                <input type="text" onChange={handleName} placeholder="Enter Name"></input>
+                <button onClick={playGame} className="play_game_button">Let's Play</button>
+            </form>
         </div>
     );
 }

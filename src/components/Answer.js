@@ -8,7 +8,9 @@ const Answer = ({ answer, selectAnswer }) => {
 
 
     return (
-        <div onClick={selectAnswer} value={answer} className={`answer_box`} id={`answer_${answer}`}>{answer}</div>
+        <div className={`answer_box`}>
+            <div onClick={selectAnswer} value={answer} className="inner_answer_container" id={`answer_${answer}`}>{answer}</div>
+        </div>
     );
 }
 
