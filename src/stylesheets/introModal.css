@@ -2,6 +2,35 @@
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: green;
     display: none;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+.intro_modal_container {
+    height: 45%;
+    width: 35%;
+    border: 3px solid #d1d7e0;
+    background-color: #564f6f;
+    display: grid;
+    grid-template-rows: 8fr 2fr;
+}
+
+.intro_modal_container > div{
+    height: 100%;
+    width: 100%;
+}
+
+.message_to_user_outer_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message_to_user_inner_container {
+    height: 90%;
+    width: 90%;
+    background-color: #d1d7e0;
+    color:#2d283e;
 }

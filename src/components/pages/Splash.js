@@ -57,10 +57,13 @@ const Splash = () => {
         splashElement.className = splashElement.className + ' transition-fade'
 
         setTimeout(() => {
-            // history.push('./play') put this in continue button in introModal
+            document.querySelector('.intro_modal').style.display = "flex"
+            splashElement.style.display = 'none'
+        }, 1000)
 
-            document.querySelector('.intro-modal').style.display = "flex"
-        }, 2000)
+        setTimeout(() => {
+            document.querySelector('.intro_modal').className += ' transition-fade-in'
+        }, 1500)
     }
 
     useEffect(() => {
