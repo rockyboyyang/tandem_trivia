@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useHistory} from "react-router-dom";
 import { AppContext } from '../../context/AppContext'
+import IntroModal from '../IntroModal'
 
 const Splash = () => {
     const { questions, playerName, setPlayerName } = useContext(AppContext)
@@ -52,8 +53,14 @@ const Splash = () => {
             }
         }
 
-        console.log(playerName)
-        history.push('./play')
+        let splashElement = document.querySelector('.splash-page')
+        splashElement.className = splashElement.className + ' transition-fade'
+
+        setTimeout(() => {
+            // history.push('./play') put this in continue button in introModal
+
+            document.querySelector('.intro-modal').style.display = "flex"
+        }, 2000)
     }
 
     useEffect(() => {
@@ -61,13 +68,16 @@ const Splash = () => {
     }, [])
 
     return (
-        <div className="splash-page css-typing">
-            <h1>Welcome to Ultimate Trivia!</h1>
-            <form>
-                <input type="text" onChange={handleName} placeholder="Enter Name"></input>
-                <button onClick={playGame} className="play_game_button">Let's Play</button>
-            </form>
-        </div>
+        <>
+            <IntroModal />
+            <div className="splash-page">
+                <h1>Welcome to Ultimate Trivia!</h1>
+                <form>
+                    <input type="text" onChange={handleName} placeholder="Enter Name"></input>
+                    <button onClick={playGame} className="play_game_button">Let's Play</button>
+                </form>
+            </div>
+        </>
     );
 }
 

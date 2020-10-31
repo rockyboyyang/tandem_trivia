@@ -8,7 +8,7 @@
 
 .gameplay-container {
     height: 75%;
-    width: 75%;
+    width: 50%;
     border: 3px solid #d1d7e0;
     display: grid;
     grid-template-rows: 1fr 1fr;

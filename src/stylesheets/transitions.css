@@ -1,0 +1,90 @@
+.transition-fade {
+    opacity: 0;
+    transition: 750ms;
+}
+
+.transition-fade-in {
+    opacity: 1;
+    transition: 1000ms;
+}
+
+/* .entering-from-bottom {
+    transform: translateY(100%);
+} */
+
+@keyframes entering_from_bottom {
+  from {transform:  translateY(100%)}
+  to {transform: translateY(0%)}
+}
+
+@keyframes exiting_through_bottom {
+  from {transform:  translateY(0%)}
+  to {transform: translateY(100%)}
+}
+
+@keyframes entering_from_top {
+  from {transform:  translateY(-100%)}
+  to {transform: translateY(0%)}
+}
+
+@keyframes exiting_through_top {
+  from {transform:  translateY(0%)}
+  to {transform: translateY(-100%)}
+}
+
+@keyframes entering_from_left {
+  from {transform:  translateX(-100%)}
+  to {transform: translateX(0%)}
+}
+
+@keyframes entering_from_far_left {
+  from {transform:  translateX(-1000%)}
+  to {transform: translateX(0%)}
+}
+
+@keyframes exiting_through_left {
+  from {transform:  translateX(0%)}
+  to {transform: translateX(-100%)}
+}
+
+@keyframes exiting_through_far_left {
+  from {transform:  translateX(0%)}
+  to {transform: translateX(-1000%)}
+}
+
+@keyframes entering_from_right {
+  from {transform:  translateX(100%)}
+  to {transform: translateX(0%)}
+}
+
+@keyframes entering_from_far_right {
+  from {transform:  translateX(1000%)}
+  to {transform: translateX(0%)}
+}
+
+@keyframes exiting_through_right {
+  from {transform:  translateX(0%)}
+  to {transform: translateX(100%)}
+}
+
+@keyframes exiting_through_far_right {
+  from {transform:  translateX(0%)}
+  to {transform: translateX(1000%)}
+}
+
+@keyframes change_from_purple_to_white {
+    from {background-color:  #a4508b}
+    to {background-color:  #b8c6db}
+}
+
+@keyframes change_from_white_to_purple {
+    from {background-color:  #b8c6db}
+    to {background-color:  #a4508b}
+}
+
+@keyframes change_from_black_to_purple {
+    from {background-color:  #000000}
+    to {background-color:  #a4508b}
+}
+
+
