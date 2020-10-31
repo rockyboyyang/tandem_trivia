@@ -34,3 +34,26 @@
     background-color: #d1d7e0;
     color:#2d283e;
 }
+
+.continue_button_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.continue_button {
+    border:#d1d7e0 solid 1px;
+    border-radius: 20px;
+    height: 50%;
+    width: 17%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.continue_button:hover {
+    cursor: pointer;
+    color: #2d283e;
+    background-color: #d1d7e0;
+    transition: .5s;
+}

@@ -61,6 +61,7 @@ const Play = () => {
 
     useEffect(() => {
         randomizeQuestions()
+        document.querySelector('.gameplay-container').style.opacity = '1'
         if(!playerName) history.push('../')
     }, [])
 
@@ -68,7 +69,7 @@ const Play = () => {
         <>
             <ConfirmationModal playerAnswer={playerAnswer} currentQuestion={currentQuestion} setQuestionNumber={setQuestionNumber} questionNumber={questionNumber} randomizeQuestions={randomizeQuestions} setCurrentScore={setCurrentScore} currentScore={currentScore}/>
             <div className="play-page">
-                <div className="gameplay-container">
+                <div className="gameplay-container transition-fade-in">
                     <div className="question_score_container">
                         <div id="score">Score: {currentScore}/10</div>
                         <div id="question_number"><h1>Question {questionNumber}</h1></div>
