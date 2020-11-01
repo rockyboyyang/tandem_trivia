@@ -15,6 +15,7 @@
     background-color: #564f6f;
     display: grid;
     grid-template-rows: 8fr 2fr;
+    border-radius: 20px;
 }
 
 .intro_modal_container > div{
@@ -33,12 +34,22 @@
     width: 90%;
     background-color: #d1d7e0;
     color:#2d283e;
+    border-radius: 20px;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .continue_button_container {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.rules_text_container {
+    height: 80%;
+    width: 80%;
 }
 
 .continue_button {

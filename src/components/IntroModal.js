@@ -21,13 +21,15 @@ const IntroModal = ({ playerAnswer, currentQuestion, setQuestionNumber, question
             <div className="intro_modal_container">
                 <div className="message_to_user_outer_container">
                     <div className="message_to_user_inner_container">
-                        <span>Rules: Answer as much questions as you can in a round.
-                         There are 10 questions in a round. After all the answers are revealed, 
-                         you have 20 seconds to answer the question. When the timer expires, you will
-                         forfeit the question.</span>
-                        <br></br>
-                        <br></br>
-                        <span>Warning: If you refresh or leave the page during a round of Ultimate Trivia, you will lose your progress.</span>
+                        <div className="rules_text_container">
+                            <span>Rules: Answer as much questions as you can in a round.
+                            There are 10 questions in a round. After all the answers are revealed, 
+                            you have 20 seconds to answer the question. When the timer expires, you will
+                            forfeit the question.</span>
+                            <br></br>
+                            <br></br>
+                            <span>Warning: If you refresh or leave the page during a round of Ultimate Trivia, you will lose your progress.</span>
+                        </div>
                     </div>
                 </div>
                 <div onClick={advanceToGame} className="continue_button_container">

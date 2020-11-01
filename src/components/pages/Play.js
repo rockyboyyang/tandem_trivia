@@ -4,6 +4,7 @@ import { AppContext } from '../../context/AppContext'
 import Answer from '../Answer'
 import questions from "../../assets/Apprentice_TandemFor400_Data.json"
 import ConfirmationModal from '../ConfirmationModal'
+import EndGameModal from '../EndGameModal'
 
 const Play = () => {
     const { playerName, setPlayerName } = useContext(AppContext)
@@ -26,9 +27,6 @@ const Play = () => {
     const randomizeQuestions = () => {
         let questions = notAskedQuestions
         let randomNum = randomIntFromInterval(0, questions.length - 1)
-        console.log(questions)
-        console.log(randomNum)
-        console.log(questions[randomNum])
         let answers = [questions[randomNum].correct, ...questions[randomNum].incorrect]
         
 
@@ -68,6 +66,7 @@ const Play = () => {
     return (
         <>
             <ConfirmationModal playerAnswer={playerAnswer} currentQuestion={currentQuestion} setQuestionNumber={setQuestionNumber} questionNumber={questionNumber} randomizeQuestions={randomizeQuestions} setCurrentScore={setCurrentScore} currentScore={currentScore}/>
+            <EndGameModal currentScore={currentScore} />
             <div className="play-page">
                 <div className="gameplay-container transition-fade-in">
                     <div className="question_score_container">

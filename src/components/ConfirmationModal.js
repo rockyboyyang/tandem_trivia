@@ -33,6 +33,10 @@ const ConfirmationModal = ({ playerAnswer, currentQuestion, setQuestionNumber, q
             yes_button.style.display = 'flex'
             no_button.style.display = 'flex'
             message.innerText = `Is that your final answer ${playerName}`
+            if(questionNumber === 10) {
+                document.querySelector('.gameplay-container').style.display = "none"
+                document.querySelector('.end_game_modal').style.display = "flex"
+            }
         }, 2500)
     }
 
