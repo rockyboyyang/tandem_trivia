@@ -59,3 +59,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
+
+### '.env'
+
+Create a .env file and put this line of code in it in order to npm start.
+SKIP_PREFLIGHT_CHECK=true
