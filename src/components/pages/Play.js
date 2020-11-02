@@ -7,7 +7,7 @@ import ConfirmationModal from '../ConfirmationModal'
 import EndGameModal from '../EndGameModal'
 
 const Play = () => {
-    const { playerName, setPlayerName } = useContext(AppContext)
+    const { playerName } = useContext(AppContext)
     const [currentQuestion, setCurrentQuestion] = useState({})
     const [questionNumber, setQuestionNumber] = useState(1)
     const [playerAnswer, setPlayerAnswer] = useState('')
@@ -25,16 +25,18 @@ const Play = () => {
     }
 
     const randomizeQuestions = () => {
-        let questions = notAskedQuestions
-        let randomNum = randomIntFromInterval(0, questions.length - 1)
-        let answers = [questions[randomNum].correct, ...questions[randomNum].incorrect]
+        let questionsTemp = []
         
+        notAskedQuestions.forEach(element => questionsTemp.push(element))
 
+        let randomNum = randomIntFromInterval(0, questionsTemp.length - 1)
+        let answers = [questionsTemp[randomNum].correct, ...questionsTemp[randomNum].incorrect]
+        if(answers.length === 3) answers.push('')
         let len = answers.length
         let max = 3
 
         // this always puts the answers in different positions
-        let currentQuestion = questions[randomNum]
+        let currentQuestion = questionsTemp[randomNum]
         for(let i = 0; i < len; i++) {
             let randomAnswerNum = randomIntFromInterval(0, max)
             if (i === 0) setAnswer1(answers[randomAnswerNum])
@@ -45,15 +47,14 @@ const Play = () => {
             max--
         }
         setCurrentQuestion(currentQuestion)
-        questions.splice(randomNum, 1)
-        setNotAskedQuestions(questions)
+        questionsTemp.splice(randomNum, 1)
+        setNotAskedQuestions(questionsTemp)
     }
 
     const selectAnswer = (e) => {
         e.preventDefault()
         let playerAnswer = e.target.innerText
         setPlayerAnswer(playerAnswer)
-
         document.querySelector('.confirm_modal').style.display = "flex"
     }
 
@@ -66,7 +67,7 @@ const Play = () => {
     return (
         <>
             <ConfirmationModal playerAnswer={playerAnswer} currentQuestion={currentQuestion} setQuestionNumber={setQuestionNumber} questionNumber={questionNumber} randomizeQuestions={randomizeQuestions} setCurrentScore={setCurrentScore} currentScore={currentScore}/>
-            <EndGameModal currentScore={currentScore} />
+            <EndGameModal currentScore={currentScore} setQuestionNumber={setQuestionNumber} setCurrentScore={setCurrentScore} setNotAskedQuestions={setNotAskedQuestions}/>
             <div className="play-page">
                 <div className="gameplay-container transition-fade-in">
                     <div className="question_score_container">

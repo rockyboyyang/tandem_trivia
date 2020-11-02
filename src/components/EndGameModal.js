@@ -1,21 +1,25 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import { AppContext } from '../context/AppContext'
 import questions from "../assets/Apprentice_TandemFor400_Data.json"
 
-const EndGameModal = ({ currentScore }) => {
+const EndGameModal = ({ currentScore, setQuestionNumber, setCurrentScore, setNotAskedQuestions }) => {
 
-    // { playerAnswer, currentQuestion, setQuestionNumber, questionNumber, randomizeQuestions, setCurrentScore, currentScore }
     const { playerName, setPlayerName } = useContext(AppContext)
 
     const history = useHistory()
 
     const playAgain = () => {
-
+        setQuestionNumber(1)
+        setCurrentScore(0)
+        setNotAskedQuestions(questions)
+        document.querySelector('.end_game_modal').style.display = "none"
+        document.querySelector('.gameplay-container').style.display = "grid"
     }
 
     const toSplash = () => {
-
+        setPlayerName('')
+        history.push('../')
     }
 
     return (

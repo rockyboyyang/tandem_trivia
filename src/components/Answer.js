@@ -1,10 +1,6 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { useHistory } from "react-router-dom";
-import { AppContext } from '../context/AppContext'
-import questions from "../assets/Apprentice_TandemFor400_Data.json"
+import React from 'react';
 
 const Answer = ({ answer, selectAnswer }) => {
-    const {  playerName, setPlayerName } = useContext(AppContext)
 
 
     return (

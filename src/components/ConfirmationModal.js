@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { useHistory } from "react-router-dom";
+import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext'
-import questions from "../assets/Apprentice_TandemFor400_Data.json"
+
 
 const ConfirmationModal = ({ playerAnswer, currentQuestion, setQuestionNumber, questionNumber, randomizeQuestions, setCurrentScore, currentScore }) => {
-    const { playerName, setPlayerName } = useContext(AppContext)
+    const { playerName } = useContext(AppContext)
 
     const click_on_no = () => {
         document.querySelector('.confirm_modal').style.display = "none"
